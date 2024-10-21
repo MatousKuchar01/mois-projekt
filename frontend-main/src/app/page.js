@@ -7,10 +7,10 @@ export default function Home()
             <header>
                 <h1>Blogová aplikace</h1>
                 <nav>
-                    <Link href="pages/login.js">
+                    <Link href="/login">
                         Přihlásit se
                     </Link>
-                    <Link href="pages/register.js">
+                    <Link href="/register">
                         Registrovat se
                     </Link>
                 </nav>
@@ -18,7 +18,7 @@ export default function Home()
 
             {/* Sekce pro přidání článku */}
             <section className="add-article-section">
-                <Link href="pages/create-article.js">
+                <Link href="/create-article">
                     <button>Přidat článek</button>
                 </Link>
             </section>
