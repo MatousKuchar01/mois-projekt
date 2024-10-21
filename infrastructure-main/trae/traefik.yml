@@ -1,0 +1,26 @@
+api:
+  dashboard: true
+  insecure: true
+
+entryPoints:
+  web:
+    address: ":80"
+    asDefault: true
+    forwardedHeaders:
+      insecure: true
+
+
+providers:
+  file:
+    filename: "/etc/traefik/dynamic.yml"
+
+log:
+  level: "INFO"
+
+accessLog:
+  format: "json"
+  fields:
+    defaultMode: "keep"
+    headers:
+      defaultMode: "keep"
+

@@ -1,0 +1,62 @@
+version: "3.8"
+
+name: mois
+services: 
+  front:
+    image: front
+    networks:
+      - net
+    expose:
+      - 8080
+  #api-subs:
+    #image: api-subs
+  api-users:
+    image: api-users
+    environment:
+      - DB_ADDRESS=postgresql://mois-db-postgre-1:5432/users_db
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_USER=usersApp
+    depends_on:
+      - db-postgre
+    networks:
+      - net
+    expose:
+      - 80
+  #api-stories:
+    #image: api-stories
+  gateway:
+    image: traefik:v3.1
+    ports:
+      - "8080:80"
+      - "8000:8080"
+    volumes:
+      - "./trae:/etc/traefik"
+    networks:
+      - net
+      
+
+  db-postgre:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 10s
+      retries: 3
+      start_period: 30s
+      timeout: 5s
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - LANG=cs_CZ.utf8
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - db-postgre-data:/var/lib/postgresql/data
+    networks:
+      - net
+    ports:
+      - "8005:5432"
+
+volumes:
+  db-postgre-data:
+
+networks:
+  net:

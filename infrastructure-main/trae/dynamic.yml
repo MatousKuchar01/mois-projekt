@@ -1,0 +1,38 @@
+http:
+  routers:
+    users-router:
+      rule: "PathPrefix(`/users`)"
+      service: "users-service"
+
+    subscribe-router:
+      rule: "PathPrefix(`/subscribe`)"
+      service: "subs-service"
+
+    front-router:
+      rule: "PathPrefix(`/`)"
+      service: "front-service"
+
+    stories-router:
+      rule: "PathPrefix(`/stories`)"
+      service: "stories-service"
+
+  services:
+    front-service:
+      loadBalancer:
+        servers:
+          - url: "http://mois-front-1:8080"
+
+    users-service:
+      loadBalancer:
+        servers:
+          - url: "http://mois-api-users-1:80"
+
+    subs-service:
+      loadBalancer:
+        servers:
+          - url: "http://mois-api-subs-1:80"
+
+    stories-service:
+      loadBalancer:
+        servers:
+          - url: "http://mois-api-stories-1:80"
