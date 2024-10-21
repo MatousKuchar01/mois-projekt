@@ -1,11 +1,13 @@
 import Link from 'next/link';
+import ArticleWall from "@/app/article/page";
+import Footer from './components/footer';
 
 export default function Home()
 {
     return (
         <div className="container">
             <header>
-                <h1>Blogová aplikace</h1>
+                <h1>Blogování s JS</h1>
                 <nav>
                     <Link href="/login">
                         Přihlásit se
@@ -23,7 +25,13 @@ export default function Home()
                 </Link>
             </section>
 
-            {/* Další obsah domovské stránky */}
+            {/* Sekce pro blogovou zeď */}
+            <ArticleWall />  {/* Zobrazíme příspěvky */}
+
+            <div>
+                {/* Přidání footeru */}
+                <Footer />
+            </div>
         </div>
     );
 }
