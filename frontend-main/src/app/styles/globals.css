@@ -10,11 +10,11 @@
   }
 }
 
-.body {
+body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url('/frontend-main/public/images/background.jpg');
+  background-image: url('/images/background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -28,6 +28,7 @@
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #E74C3C;
 }
 
 header {
@@ -131,6 +132,7 @@ article p {
 .add-article-section {
   margin-top: 2rem;
   text-align: center;
+  width: 300px;
 }
 
 .add-article-section button {
@@ -146,4 +148,12 @@ article p {
 .add-article-section button:hover {
   background-color: #333;
   cursor: pointer;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  display: block;
+  margin: 0;
+  float: left; /* Přidáno pro zarovnání vlevo */
 }

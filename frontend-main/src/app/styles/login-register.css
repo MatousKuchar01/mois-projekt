@@ -29,6 +29,7 @@
 
 .login-button {
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .register-form {
@@ -62,4 +63,21 @@
 
 .register-button {
     margin-top: 20px;
+    cursor: pointer;
+}
+
+.back-button {
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 20px;
+    color: #f37500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button:hover {
+    color: #f34900;
 }
